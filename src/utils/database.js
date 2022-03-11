@@ -4,6 +4,12 @@ const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME
     host: process.env.DB_HOST,
     dialect: 'postgres',
     logging: false,
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false,
+        }
+    }
 })
 
 module.exports = sequelize;
